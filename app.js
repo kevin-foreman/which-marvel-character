@@ -1,5 +1,5 @@
 let characterSelected, searchTerm;
-// require('dotenv').config({ path: './.env' });
+// require('dotenv').config();
 // let myAPIKey = process.env.privateApiKey;
 // console.log(process.env) // remove this after you've confirmed it is working
 
