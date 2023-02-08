@@ -4,10 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Which one?</title>
 </head>
 <body>
-    <button class="character" id="characterPick">Click me to find out</button>
+    <h1 class="header1">Which Marvel Character Are You?</h1>
+    <div class="card-body" id="userSection">
+        <input type="text" id="userAnswer">
+        <button class="character" id="characterPick">Click me to find out</button>
+    </div>
+
+    <div id="questionResults">
+
+    </div>
     <script src="app.js"></script>
 </body>
 </html>
