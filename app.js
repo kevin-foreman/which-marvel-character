@@ -1,6 +1,6 @@
 let characterSelected, searchTerm;
-require('dotenv').config();
-let myAPIKey = process.env.privateApiKey;
+// require('dotenv').config();
+// let myAPIKey = process.env.privateApiKey;
 
 $('#characterPick').on('click', function () {
     console.log("I got clicked!")
