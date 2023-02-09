@@ -14,11 +14,11 @@ body {
   flex-wrap: unset;
   background-color: grey;
   border: 2px solid black;
-  border-radius: 15px;
+  border-radius: 10px;
 }
 
-.hide {
-  display: none;
+.character {
+  background-color: red;
 }
 
 .result-card {

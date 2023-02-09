@@ -6,7 +6,7 @@ let characterSelected, searchTerm;
 let userDosier = 0;
 
 $('#characterPick').on('click', function () {
-    console.log("I got clicked!");
+    console.log("characterPick got clicked!");
     let searchTerm = $('#userAnswer').val();
 
     // prompt("Yes or No");
@@ -21,30 +21,14 @@ $('#characterPick').on('click', function () {
         };
     };
 
-    
-    function showConfirmBox() {
-        document.getElementById("overlay").hidden = false;
-    };
-    function closeConfirmBox() {
-        document.getElementById("overlay").hidden = true;
-    };
-
-    function isConfirm(answer) {
-        if (answer) {
-            alert("You said yes!");
-        } else {
-            alert("You said no :(");
-        };
-        closeConfirmBox();
-    };
-
     dosierPrompt1();
 
 });
 
 function characterSelect() {
 
-    $.get(`https://gateway.marvel.com:443/v1/public/characters?name=deadpool&apikey=a4591843cae8c4fbe86dc71edf01ba695df3bb2a`, (data) => {
+    $.get(`https://gateway.marvel.com:443/v1/public/characters?apikey=34ccc8ffaeb21342da2868e7bf73270a
+    `, (data) => {
         console.log(data);
         let arrayData = JSON.stringify(data);
         let resultObj = JSON.parse(arrayData);
