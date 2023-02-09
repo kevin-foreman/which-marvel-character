@@ -17,9 +17,9 @@ body {
   border-radius: 15px;
 }
 
-/* .hide {
+.hide {
   display: none;
-} */
+}
 
 .result-card {
   width: 600px;
