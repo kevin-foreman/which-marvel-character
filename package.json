@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/kevin-foreman/which-marvel-character#readme",
   "dependencies": {
+    "blueimp-md5": "^2.19.0",
     "dotenv": "^16.0.3"
   }
 }
