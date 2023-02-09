@@ -3,9 +3,6 @@ let characterSearch;
 // let myAPIKey = process.env.privateApiKey;
 // console.log(process.env) // remove this after you've confirmed it is working
 
-let userDosier = 0;
-
-
 $('#characterPick').on('click', function () {
     let characterSearch = $('#userSearch').val();
     let ts = Date.now();
@@ -15,19 +12,42 @@ $('#characterPick').on('click', function () {
     let hashValue = md5(stringToHash);
     // console.log(characterSearch);
 
+    // $.get(`https://gateway.marvel.com/v1/public/images?name=${characterSearch}&ts=${ts}&apikey=${myPublicAPIKey}&hash=${hashValue}`, (data) => {
+    //     let image = data.image;
+        
+    // });
+
     $.get(`https://gateway.marvel.com/v1/public/characters?name=${characterSearch}&ts=${ts}&apikey=${myPublicAPIKey}&hash=${hashValue}`, (data) => {
-        // console.log(data);
+
         let arrayData = JSON.stringify(data);
         let dataObj = JSON.parse(arrayData);
-        console.log(dataObj);
+        console.log(data);
 
         $('#characterResult').empty();
-        let resultObj;//  = (dataObj).slice(-10);
-        for (let key in dataObj) {
-            let header = dataObj.data.results.name;
-            console.log(header);
 
-        };
+            let header = dataObj.data.results[0].name;
+
+            let image = dataObj.data.results[0].thumbnail.path + '/portrait_medium.jpg';
+            console.log(image);
+            if (image === null) {
+                image = 'https://uxwing.com/wp-content/themes/uxwing/download/web-app-development/image-not-found-icon.png';
+            } else {
+                image = dataObj.data.results[0].thumbnail.path + '/portrait_medium.jpg';
+            };
+            let description = dataObj.data.results[0].description;
+            let comics = dataObj.data.results[0].comics.items; // .join(', ');
+            let sortedComics = '';
+            for (let i = 0; i < comics.length; i++) {
+                sortedComics += (comics[i].name.split(', '));
+            };
+            console.log(sortedComics);
+            $(`#characterResult`).append(`<span class='result-card' id='span'></span>`);
+            $(`#span`).append(`<h2 class='card-title' id='header'>${header}</h3>`);
+            $(`#span`).append(`<img src='${image}' class='card' id='image'>`);
+            $(`#span`).append(`<h3 class='description' id='subheader'>${description}</h2>`);
+            $(`#span`).append(`<h4 class='comicbooks' id='comics'>Comic books that ${header} has been in</h4>`);
+            $(`#span`).append(`<h4 class='comicbooks' id='comics'>${sortedComics}</h4>`);
+
     });
 });
 
