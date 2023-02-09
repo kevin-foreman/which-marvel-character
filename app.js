@@ -7,22 +7,28 @@ let userDosier = 0;
 
 
 $('#characterPick').on('click', function () {
-    console.log("characterPick got clicked!");
     let characterSearch = $('#userSearch').val();
     let ts = Date.now();
     let myPrivateAPIKey = 'a4591843cae8c4fbe86dc71edf01ba695df3bb2a'; // process.env.privateApiKey;
     let myPublicAPIKey = '34ccc8ffaeb21342da2868e7bf73270a'; // process.env.publicApiKey;
     let stringToHash = ts + myPrivateAPIKey + myPublicAPIKey;
-    console.log(stringToHash);
     let hashValue = md5(stringToHash);
+    // console.log(characterSearch);
 
-    // md5sum 61802d3189a7f5e71f01372764ebd2ea
     $.get(`https://gateway.marvel.com/v1/public/characters?name=${characterSearch}&ts=${ts}&apikey=${myPublicAPIKey}&hash=${hashValue}`, (data) => {
-        console.log(data);
+        // console.log(data);
         let arrayData = JSON.stringify(data);
-        let resultObj = JSON.parse(arrayData);
-    });
+        let dataObj = JSON.parse(arrayData);
+        console.log(dataObj);
 
+        $('#characterResult').empty();
+        let resultObj;//  = (dataObj).slice(-10);
+        for (let key in dataObj) {
+            let header = dataObj.data.results.name;
+            console.log(header);
+
+        };
+    });
 });
 
 
