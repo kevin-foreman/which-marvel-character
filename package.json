@@ -2,7 +2,8 @@
   "name": "which-marvel-character",
   "version": "1.0.0",
   "description": "Quirky Marvel character quiz",
-  "main": "app.js",
+  "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,6 +23,7 @@
   "homepage": "https://github.com/kevin-foreman/which-marvel-character#readme",
   "dependencies": {
     "blueimp-md5": "^2.19.0",
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
   }
 }

@@ -1,21 +1,17 @@
-let characterSearch;
-// require('dotenv').config();
+import env from './config.json' assert {type: "json"};
+
+
+console.log(env);
 // let myAPIKey = process.env.privateApiKey;
 // console.log(process.env) // remove this after you've confirmed it is working
 
 $('#characterPick').on('click', function () {
     let characterSearch = $('#userSearch').val();
     let ts = Date.now();
-    let myPrivateAPIKey = 'a4591843cae8c4fbe86dc71edf01ba695df3bb2a'; // process.env.privateApiKey;
-    let myPublicAPIKey = '34ccc8ffaeb21342da2868e7bf73270a'; // process.env.publicApiKey;
+    let myPrivateAPIKey =  'a4591843cae8c4fbe86dc71edf01ba695df3bb2a';  // process.env.myPrivateApiKey
+    let myPublicAPIKey = '34ccc8ffaeb21342da2868e7bf73270a'; // process.env.myPublicApiKey;
     let stringToHash = ts + myPrivateAPIKey + myPublicAPIKey;
     let hashValue = md5(stringToHash);
-    // console.log(characterSearch);
-
-    // $.get(`https://gateway.marvel.com/v1/public/images?name=${characterSearch}&ts=${ts}&apikey=${myPublicAPIKey}&hash=${hashValue}`, (data) => {
-    //     let image = data.image;
-        
-    // });
 
     $.get(`https://gateway.marvel.com/v1/public/characters?name=${characterSearch}&ts=${ts}&apikey=${myPublicAPIKey}&hash=${hashValue}`, (data) => {
 
@@ -25,42 +21,31 @@ $('#characterPick').on('click', function () {
 
         $('#characterResult').empty();
 
-            let header = dataObj.data.results[0].name;
+        let header = dataObj.data.results[0].name;
 
-            let image = dataObj.data.results[0].thumbnail.path + '/portrait_medium.jpg';
-            console.log(image);
-            if (image === null) {
-                image = 'https://uxwing.com/wp-content/themes/uxwing/download/web-app-development/image-not-found-icon.png';
-            } else {
-                image = dataObj.data.results[0].thumbnail.path + '/portrait_medium.jpg';
-            };
-            let description = dataObj.data.results[0].description;
-            let comics = dataObj.data.results[0].comics.items; // .join(', ');
-            let sortedComics = '';
-            for (let i = 0; i < comics.length; i++) {
-                sortedComics += (comics[i].name.split(', '));
-            };
-            console.log(sortedComics);
-            $(`#characterResult`).append(`<span class='result-card' id='span'></span>`);
-            $(`#span`).append(`<h2 class='card-title' id='header'>${header}</h3>`);
-            $(`#span`).append(`<img src='${image}' class='card' id='image'>`);
-            $(`#span`).append(`<h3 class='description' id='subheader'>${description}</h2>`);
-            $(`#span`).append(`<h4 class='comicbooks' id='comics'>Comic books that ${header} has been in</h4>`);
-            $(`#span`).append(`<h4 class='comicbooks' id='comics'>${sortedComics}</h4>`);
+        let image = dataObj.data.results[0].thumbnail.path + '/standard_xlarge.jpg';
+        if (image === null) {
+            image = 'https://uxwing.com/wp-content/themes/uxwing/download/web-app-development/image-not-found-icon.png';
+        } else {
+            image = dataObj.data.results[0].thumbnail.path + '/standard_xlarge.jpg';
+        };
+        let description = dataObj.data.results[0].description;
+        let comics = dataObj.data.results[0].comics.items; // .join(', ');
+        let sortedComics = [];
+        for (let i = 0; i < comics.length; i++) {
+            sortedComics.push(comics[i].name);
+            // sortedComics.split(', ');
+        };
+        console.log(sortedComics);
+        $(`#characterResult`).append(`<span class='result-card' id='span'></span>`);
+        $(`#span`).append(`<h2 class='card-title' id='header'>${header}</h3>`);
+        $(`#span`).append(`<img src='${image}' class='card' id='image'>`);
+        $(`#span`).append(`<h3 class='description' id='subheader'>${description}</h2>`);
+        $(`#span`).append(`<h4 class='comicbooks' id='comics'>Comic books that ${header} has been in</h4>`);
+        $(`#span`).append(`<h4 class='comicbooks' id='comics'>${sortedComics}</h4>`);
 
     });
 });
-
-
-
-
-
-
-
-
-
-
-
 
 
 //  A formatted version of a popular md5 implementation.
