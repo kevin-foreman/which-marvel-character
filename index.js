@@ -1,14 +1,10 @@
-// import env from './config.json' assert {type: "json"};
-
-// console.log(env);
-// let myAPIKey = process.env.privateApiKey;
-// console.log(process.env) // remove this after you've confirmed it is working
+import config from './config.json' assert {type: "json"};
 
 $('#characterPick').on('click', function () {
     let characterSearch = $('#userSearch').val();
     let ts = Date.now();
-    let myPrivateAPIKey =  'a4591843cae8c4fbe86dc71edf01ba695df3bb2a';  // process.env.myPrivateApiKey
-    let myPublicAPIKey = '34ccc8ffaeb21342da2868e7bf73270a'; // process.env.myPublicApiKey;
+    let myPrivateAPIKey =  config.myPrivateAPIKey;
+    let myPublicAPIKey = config.myPublicAPIKey;
     let stringToHash = ts + myPrivateAPIKey + myPublicAPIKey;
     let hashValue = md5(stringToHash);
 
@@ -32,6 +28,7 @@ $('#characterPick').on('click', function () {
         let sortedComics = [];
         for (let i = 0; i < comics.length; i++) {
             sortedComics.push(comics[i].name);
+            sortedComics.toString().split(',');
             // sortedComics.split(', ');
         };
         // Append all the information we want to the DOM
