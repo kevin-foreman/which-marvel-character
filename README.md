@@ -18,7 +18,7 @@ Small application to get information about your favorite super heroes of the Mar
 * [License](#license) 
 
 ## Installation
-No installation is required visit the application @ kevin-foreman.github.io/which-marvel-character
+No installation is required visit the application @ https://kevin-foreman.github.io/which-marvel-character/
 
 ## Usage
 Screen shot will be provided
