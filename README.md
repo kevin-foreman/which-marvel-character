@@ -3,8 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 
-# Title
-Marvel Character Finder
+# Marvel Character Finder
 
 ## Description
 Small application to get information about your favorite super heroes of the Marvel Universe!
@@ -21,7 +20,8 @@ Small application to get information about your favorite super heroes of the Mar
 No installation is required visit the application @ https://kevin-foreman.github.io/which-marvel-character/
 
 ## Usage
-Screen shot will be provided
+Screen shot will below
+![alt text](/images/marvel-character.png)
 
 ## Contributors
 None
