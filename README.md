@@ -20,7 +20,7 @@ Small application to get information about your favorite super heroes of the Mar
 No installation is required visit the application @ https://kevin-foreman.github.io/which-marvel-character/
 
 ## Usage
-Screen shot will below
+Screen shot below
 ![alt text](/images/marvel-character.png)
 
 ## Contributors
