@@ -1,6 +1,5 @@
 import env from './config.json' assert {type: "json"};
 
-
 console.log(env);
 // let myAPIKey = process.env.privateApiKey;
 // console.log(process.env) // remove this after you've confirmed it is working
@@ -17,12 +16,11 @@ $('#characterPick').on('click', function () {
 
         let arrayData = JSON.stringify(data);
         let dataObj = JSON.parse(arrayData);
-        console.log(data);
 
+        // Clear previous search if a new search is initiated
         $('#characterResult').empty();
-
+        // Variables will be assigned to each data point we pull from our API
         let header = dataObj.data.results[0].name;
-
         let image = dataObj.data.results[0].thumbnail.path + '/standard_xlarge.jpg';
         if (image === null) {
             image = 'https://uxwing.com/wp-content/themes/uxwing/download/web-app-development/image-not-found-icon.png';
@@ -36,17 +34,15 @@ $('#characterPick').on('click', function () {
             sortedComics.push(comics[i].name);
             // sortedComics.split(', ');
         };
-        console.log(sortedComics);
+        // Append all the information we want to the DOM
         $(`#characterResult`).append(`<span class='result-card' id='span'></span>`);
         $(`#span`).append(`<h2 class='card-title' id='header'>${header}</h3>`);
         $(`#span`).append(`<img src='${image}' class='card' id='image'>`);
         $(`#span`).append(`<h3 class='description' id='subheader'>${description}</h2>`);
         $(`#span`).append(`<h4 class='comicbooks' id='comics'>Comic books that ${header} has been in</h4>`);
         $(`#span`).append(`<h4 class='comicbooks' id='comics'>${sortedComics}</h4>`);
-
     });
 });
-
 
 //  A formatted version of a popular md5 implementation.
 //  Original copyright (c) Paul Johnston & Greg Holt.
@@ -93,6 +89,6 @@ function md5(inputString) {
         d = ii(d, a, b, c, x[i + 15], 10, -30611744); c = ii(c, d, a, b, x[i + 6], 15, -1560198380); b = ii(b, c, d, a, x[i + 13], 21, 1309151649);
         a = ii(a, b, c, d, x[i + 4], 6, -145523070); d = ii(d, a, b, c, x[i + 11], 10, -1120210379); c = ii(c, d, a, b, x[i + 2], 15, 718787259);
         b = ii(b, c, d, a, x[i + 9], 21, -343485551); a = ad(a, olda); b = ad(b, oldb); c = ad(c, oldc); d = ad(d, oldd);
-    }
+    };
     return rh(a) + rh(b) + rh(c) + rh(d);
-}
+};
