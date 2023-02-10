@@ -1,4 +1,4 @@
-import env from './config.json' assert {type: "json"};
+// import env from './config.json' assert {type: "json"};
 
 console.log(env);
 // let myAPIKey = process.env.privateApiKey;
