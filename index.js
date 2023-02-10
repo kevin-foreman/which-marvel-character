@@ -1,6 +1,6 @@
 // import env from './config.json' assert {type: "json"};
 
-console.log(env);
+// console.log(env);
 // let myAPIKey = process.env.privateApiKey;
 // console.log(process.env) // remove this after you've confirmed it is working
 
