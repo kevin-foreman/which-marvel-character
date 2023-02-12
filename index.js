@@ -24,11 +24,11 @@ $('#characterPick').on('click', function () {
             image = dataObj.data.results[0].thumbnail.path + '/standard_xlarge.jpg';
         };
         let description = dataObj.data.results[0].description;
-        let comics = dataObj.data.results[0].comics.items; // .join(', ');
+        let comics = dataObj.data.results[0].comics.items; // .join(', ');  
         let sortedComics = [];
         for (let i = 0; i < comics.length; i++) {
             sortedComics.push(comics[i].name);
-            sortedComics.toString().split(',');
+            sortedComics.toString().split(', ');
             // sortedComics.split(', ');
         };
         // Append all the information we want to the DOM
