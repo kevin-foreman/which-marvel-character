@@ -1,10 +1,12 @@
-import config from './config.json' assert {type: "json"};
+// import config from './config.json' assert {type: "json"};
 
 $('#characterPick').on('click', function () {
     let characterSearch = $('#userSearch').val();
     let ts = Date.now();
-    let myPrivateAPIKey =  config.myPrivateAPIKey;
-    let myPublicAPIKey = config.myPublicAPIKey;
+    // let myPrivateAPIKey =  config.myPrivateAPIKey;
+    // let myPublicAPIKey = config.myPublicAPIKey;
+    let myPrivateAPIKey = "a4591843cae8c4fbe86dc71edf01ba695df3bb2a";
+    let myPublicAPIKey = "34ccc8ffaeb21342da2868e7bf73270a";
     let stringToHash = ts + myPrivateAPIKey + myPublicAPIKey;
     let hashValue = md5(stringToHash);
 
