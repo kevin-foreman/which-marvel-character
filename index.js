@@ -12,6 +12,7 @@ $('#characterPick').on('click', function () {
 
         let arrayData = JSON.stringify(data);
         let dataObj = JSON.parse(arrayData);
+        console.log(dataObj);
 
         // Clear previous search if a new search is initiated
         $('#characterResult').empty();
